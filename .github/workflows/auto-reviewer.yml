@@ -1,0 +1,22 @@
+name: Auto Review
+
+# Caller workflow: invokes the reusable auto-reviewer from AssemblyZero.
+# Deployed by tools/deploy_auto_reviewer_fleet.py (#736)
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  pull-requests: write
+  checks: read
+
+jobs:
+  auto-review:
+    uses: martymcenroe/AssemblyZero/.github/workflows/auto-reviewer.yml@main
+    with:
+      required_checks: "pr-sentinel"
+    secrets:
+      REVIEWER_APP_ID: ${{ secrets.REVIEWER_APP_ID }}
+      REVIEWER_APP_PRIVATE_KEY: ${{ secrets.REVIEWER_APP_PRIVATE_KEY }}
