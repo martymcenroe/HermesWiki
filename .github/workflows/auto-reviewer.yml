@@ -16,7 +16,7 @@ jobs:
   auto-review:
     uses: martymcenroe/AssemblyZero/.github/workflows/auto-reviewer.yml@main
     with:
-      required_checks: "pr-sentinel"
+      required_checks: "issue-reference"
     secrets:
       REVIEWER_APP_ID: ${{ secrets.REVIEWER_APP_ID }}
       REVIEWER_APP_PRIVATE_KEY: ${{ secrets.REVIEWER_APP_PRIVATE_KEY }}
