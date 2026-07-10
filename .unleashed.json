@@ -1,8 +1,6 @@
 {
   "profile": "default",
-  "claude": {
-    "effort": "max"
-  },
+  "claude": {},
   "assemblyZero": false,
   "onboard": {
     "auto": true,
